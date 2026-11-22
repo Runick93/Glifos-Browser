@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "Local Fluent";
+  src: local("Segoe Fluent Icons"), local("SegoeFluentIcons");
+}
+:root {
+  color-scheme: light dark;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: light-dark(#f5f6fc, #121320);
+  color: light-dark(#191a31, #f0efff);
+  --surface: light-dark(#fff, #1c1e32);
+  --muted: light-dark(#545772, #b8bad8);
+  --border: light-dark(#d9dcee, #383c56);
+  --accent: light-dark(#4238b8, #b6aeff);
+  --tint: light-dark(#ebeaff, #303057);
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; }
+main { width: min(1152px, 100% - 40px); margin: 0 auto; padding-bottom: 48px; }
+header {
+  margin: 32px 0;
+  padding: clamp(24px, 5vw, 64px);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: linear-gradient(130deg, var(--surface), var(--tint));
+}
+header p { color: var(--muted); margin: 0; }
+header .eyebrow { font-size: .8rem; letter-spacing: .15em; font-weight: 700; color: var(--accent); }
+h1 { margin: 8px 0 12px; font-size: clamp(2rem, 6vw, 4rem); letter-spacing: -.045em; line-height: 1.05; }
+label { display: block; font-weight: 600; margin-bottom: 8px; }
+input, select, button { font: inherit; color: inherit; }
+input, select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.filters { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 290px); gap: 12px; }
+.filters :is(input, select) { min-height: 50px; }
+select {
+  appearance: none;
+  padding-right: 36px;
+  background:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%) right 19px center / 5px 5px no-repeat,
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%) right 14px center / 5px 5px no-repeat,
+    var(--surface);
+}
+@media (max-width: 580px) {
+  .filters { grid-template-columns: minmax(0, 1fr); }
+}
+a { color: var(--accent); text-underline-offset: .2em; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; justify-content: space-between; margin: 18px 0; }
+.toolbar p { margin: 0; color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(146px, 100%), 1fr)); gap: 10px; }
+button {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  padding: 10px 14px;
+  cursor: pointer;
+}
+button:hover { border-color: var(--accent); background: var(--tint); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.tile { display: grid; justify-items: center; align-content: center; gap: 6px; min-height: 117px; padding: 10px 6px; }
+.glyph { font-family: "Local Fluent", "Segoe Fluent Icons"; font-size: 27px; line-height: 1.65; color: var(--accent); }
+.tile-name { width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .875rem; }
+code { color: var(--muted); font-size: .8125rem; }
+dialog {
+  width: min(430px, 100% - 32px);
+  padding: 32px 20px 20px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  color: inherit;
+}
+dialog::backdrop { background: #10112899; }
+.close { position: absolute; top: 10px; right: 10px; padding: 3px 12px; font-size: 1.25rem; }
+#preview { font-size: 55px; }
+h2 { margin: 6px 0; overflow-wrap: anywhere; }
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 20px; }
+#copy-status { min-height: 1.5em; margin: 8px 0 0; color: var(--muted); }

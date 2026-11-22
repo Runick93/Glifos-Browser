@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Segoe Fluent Icons · Buscador</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="glyphs.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">CATÁLOGO DE GLIFOS</p>
+      <h1>Segoe Fluent Icons</h1>
+      <p>Encontrá el icono que necesitás y copiá su glifo o código Unicode.</p>
+    </header>
+    <section aria-label="Buscador de iconos">
+      <div class="filters">
+        <div>
+          <label for="search">Buscar glifos</label>
+          <input id="search" type="search" placeholder="Ej. carpeta, WiFi o U+E700" autocomplete="off">
+        </div>
+        <div>
+          <label for="category">Categoría</label>
+          <select id="category">
+            <option value="">Todas las categorías</option>
+          </select>
+        </div>
+      </div>
+      <p id="font-help" hidden>Para ver los glifos, instalá la <a href="https://www.microsoft.com/en-us/download/details.aspx?id=108863">fuente oficial de Microsoft</a>.</p>
+      <div class="toolbar">
+        <p id="count" role="status"></p>
+        <a href="https://learn.microsoft.com/en-us/windows/apps/design/iconography/segoe-fluent-icons-font#icon-list">Catálogo de Microsoft</a>
+      </div>
+      <div id="grid" class="grid"></div>
+      <p id="empty" hidden>Probá con otra búsqueda o cambiá la categoría.</p>
+    </section>
+    <noscript>Activá JavaScript para usar el buscador.</noscript>
+  </main>
+  <dialog id="detail" aria-labelledby="name">
+    <form method="dialog"><button class="close" aria-label="Cerrar">×</button></form>
+    <span id="preview" class="glyph" aria-hidden="true"></span>
+    <h2 id="name"></h2>
+    <code id="unicode"></code>
+    <div class="actions">
+      <button id="copy-glyph">Copiar glifo</button>
+      <button id="copy-code">Copiar Unicode</button>
+    </div>
+    <p id="copy-status" role="status"></p>
+    <input id="manual-copy" aria-label="Texto para copiar manualmente" readonly hidden>
+  </dialog>
+</body>
+</html>
